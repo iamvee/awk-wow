@@ -1,0 +1,47 @@
+* intro
+** history
+** simple awk program
+*** echo everything
+    awk '{ print }'
+    awk '{ print $0 }'
+*** print everything, twice
+    awk '{ print $0 $0 }'
+    awk '{ print ; print }'
+*** print `khob` each time
+    awk '{ print $0 ", khob!" }'
+*** run awk files
+    1) create file [[./01_simple.awk][01_simple.awk]]
+    2) change file access rights: 
+       - chmod u+x
+    3) run it:
+       - ./01_simple.awk
+    4) or this way:
+       - awk -f ./01_simple.awk
+*** BEGIN must have an action part
+**** CORRECT
+    #!/usr/bin/awk -f
+    BEGIN { print "It's Fun" }
+**** INCORRECT
+     file: [[./02_incorrect.awk][incorrect example]]
+     *ERROR MSG*
+     awk: ./02_incorrect.awk:3: BEGIN blocks must have an action part
+*** special characters, scape character
+    awk 'BEGIN { print "Don\47t Panic!" }'
+
+ 
+**** from awk script
+     YES: 
+     BEGIN { print "Hello, It\47s Me!" }
+     BEGIN { print "Hello, It's Me!" }
+**** from shell
+     YES:
+     awk 'BEGIN { print "Hello, It\47s Me!" }'  
+     NO:
+     awk 'BEGIN { print "Hello, It's Me!" }'  
+*** comments
+    [[./03_comments.awk][simple awk file with comments]]
+    [[./04_watch_special_chars_in_comments.awk][Watch Special Characters Inside Awk Script's Comments]]
+    [[./05_not_correct.sh][Incorrect in Shell]]
+*** vars
+    [[./07_vars.awk][define vars]]
+    [[./08_define_vars.sh][define vars using shell cli]]

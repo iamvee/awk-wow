@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>awk-wow</title>
+  <style>my.css</style>
+  <link rel='stylesheet' href='./static/css/my.css' />
+  <link rel="icon" type="image/x-icon" class="js-site-favicon" href="favicon.ico">
+</head>
+
+<body>
+  <textarea id="source">
+
+
+
+class: center, middle , inverse, farsi
+# `awk`, wow
+## اسکریپت نویسی awk
+
+```awk
+BEGIN { print "Hey Fellas" }
+```
+    
+
+
+
+
+
+[github](https://github.com/iamvee/awk-wow) • [website](https://iamv.ir/awk-wow) 
+
+
+
+
+---
+class: inverse, farsi
+
+## اکو
+
+دستور زیر را در کامندلاین اجرا کنید. 
+
+```shell
+$ awk '{ print }'
+```
+
+ هر دو خط  خروجی یکسانی خواهند داشت و هر رشته ورودی را در خروجی چاپ می‌کند
+
+```bash
+Salam
+Salam
+he he he ha ha hee hee 
+he he he ha ha hee hee 
+why so serious?
+why so serious?
+```
+
+با کلید‌های `ctrl` + `D` می‌توانید اجرای برنامه را متوقف کنید
+
+
+
+
+
+
+---
+class: inverse, farsi
+
+## اکو
+
+به طور مشابه از `$0` استفاده کنید  .
+
+```shell
+$ awk '{ print }'
+```
+```shell
+$ awk '{ print $0 }'
+```
+
+
+
+---
+class: inverse, farsi
+
+## دوبار اکو
+
+شبیه مثال قبل ولی دوبار تکرار می‌کنه. ولی مثلا اگه بنویسم `"salam"` 
+خروجی `"salamsalam"` خواهد بود. ما بین دو تا `$0` که برای `awk` متغیر
+به حساب میاد، هیچ فاصله‌ای ست نکردیم!
+
+```shell
+$ awk '{ print $0 $0 }'
+```
+
+این یکی هم میشه: فرقش با اولی اینه که بین دو دفعه echo کردن رشته ورودی یه خط فاصله داره و یه `'n\'` را هم خود `print` اضافه می کنه.
+
+```shell
+$ awk '{ print ; print }'
+```
+
+
+
+
+
+---
+class: inverse, farsi
+
+## دوبار اکو
+
+یا string وسطش تعریف کنیم. این هم اوکیه .
+
+اینجا کل عبارت `'{ print $0 ", " $0 }'` یه آرگومان به حساب میاد. 
+
+```bash
+$ awk '{ print $0 ", " $0 }'
+```
+
+ولی خود `awk` ورودی را این شکلی می‌بینه 
+
+```awk 
+       { print $0 ", " $0 }
+```
+
+---
+class: farsi , inverse
+
+
+## بعد از هر خط بگو «خب»
+
+توی یه فایل shell script بنویسیم
+
+```bash
+#!/bin/bash 
+
+awk '{ print $0 "khob!" }'
+```
+
+ولی فقط یه حالت خاص داشتیم: `{ print }` که تمام خط ورودی را چاپ می‌کرد.
+به همین دلیله که اگه قراره هر خط، خودش هم چاپ بشه، باید `$0` را هم بنویسیم.
+
+
+
+
+---
+class: farsi , inverse
+
+### کاراکترهای خاص در اسکریپت `awk`
+ 
+* اجرای فایل awk
+
+*اوکیه*
+```awk 
+BEGIN { print "Hello, It\47s Me!" }
+```
+
+*اوکیه*
+```awk 
+BEGIN { print "Hello, It's Me!" }  
+```
+  
+---
+class: farsi , inverse
+
+### کاراکترهای خاص در اسکریپت `awk`
+  
+* اجرا از طریق shell
+
+*اوکیه*
+```bash
+awk 'BEGIN { print "Hello, It\47s Me!" }'  
+```
+
+*`غلطه`*
+```bash
+awk 'BEGIN { print "Hello, It's Me!" }'  
+```
+
+---
+class: farsi , inverse
+
+# دانلود
+
+* توضیح لینک ۱ ... [خودِ لینک ۱](https://addresse-linke-1.com)
+* توضیح لینک ۲ ... [خودِ لینک ۲](https://addresse-linke-1.com)
+* توضیح لینک ۳ ... [خودِ لینک ۳](https://addresse-linke-1.com)
+* توضیح لینک ۴ ... [خودِ لینک ۴](https://addresse-linke-1.com)
+* توضیح لینک ۵ ... [خودِ لینک ۵](https://addresse-linke-1.com)
+
+
+    </textarea>
+  <script src="./static/js/remark-latest.min.js" tor thype="text/javascript">
+  </script>
+  <script type="text/javascript">
+    var slideshow = remark.create();
+  </script>
+</body>
+
+</html>

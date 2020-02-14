@@ -3,15 +3,17 @@
 ## برنامه‌های `awk` ساده
 
 <details><summary><strong>اکو هر چیزی</strong></summary>
-<p>
+<p style="direction:rtl">
 دستور زیر را در کامندلاین اجرا کنید. هر دو خط  خروجی یکسانی خواهند داشت و هر رشته ورودی را در خروجی چاپ می‌کند
+
+</p>
 
 ```bash
 #!/bin/bash
 awk '{ print }'
 awk '{ print $0 }'
 ```
-</p>
+
 </details>
 
 <details><summary><strong>دوبار اکو </strong></summary>
